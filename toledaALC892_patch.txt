@@ -1,0 +1,133 @@
+Maintained by: toleda for: github.com/toleda/audio_ALC892
+File: toledaALC892_patch_v1.0
+Credit: THeKiNG, VCH888, .:ErmaC:., RevoGirl
+
+The toledaALC892 patch configures OS X Realtek ALC892 onboard audio on Intel based motherboards with a bootable clean install of OS X.  The patched AppleHDA.kext only works with the codec the kext was edited for and replaces the native AppleHDA.kext.
+
+Agreement
+The toledaALC892_patch is for personal use only.  Do not distribute the patch, any or all of the enclosed files or the resulting patched AppleHDA.kext for any reason without permission. The toledaALC892_patch is provided as is and without any kind of warranty.
+
+________________________________________________________________________________________
+toledaALC892_patch supports
+1. Mountain Lion 10.8 - 10.8.4
+
+Supported Audio-IDs (Audio_ID = layout-id)
+1. Audio_ID: 1 - 5/6 port ALC892 onboard audio and AMD/Nvidia HDMI audio*
+2. Audio_ID: 2 - 3 port ALC892 onboard audio and AMD/Nvidia HDMI audio*
+3. Audio_ID: 3 - 3/5/6 port ALC892 onboard audio and HD3K/HD4K/AMD/Nvidia HDMI audio*
+Audio_IDs: 1 and 2 support analog 5.1 surround sound, 3 does not
+Audio_IDs: 1, 2 and 3 require HDMI audio dsdt edits for HDMI audio.
+
+Requirements
+1. Native S/L/E/AppleHDA.kext (use OS X combo update to restore native AppleHDA.kext)
+2. Audio_ID injection enabled with one method below
+2a. S/L/E/HDAEnabler1.kext or S/L/E/HDAEnabler2.kext
+2b. dsdt/HDEF/layout-id=Audio_ID
+2c. Clover with Config.plist/PCI/HDAInjection=Audio_ID
+3. Realtek ALC892 installed on motherboard.
+
+Download
+1. https://github.com/toleda/audio_ALC892
+2. Select: Download ZIP
+
+Recommendation
+1. Archive Desktop/audio_ALC892 folder as audio_ALC892_v10.x.x before patching a new AppleHDA.kext.  Patch must be run after every Software Update/Combo Update. 
+________________________________________________________________________________________
+ALC892 Patch Procedure
+Open Applications/Utilities/Terminal
+One at a time, copy each command below, Paste into the Terminal window and press Enter
+The ALC892 Patch makes a backup of the original AppleHDA.kext (AppleHDA-orig.kext) and a backup of the installed patched ALC892 AppleHDA.kext (AppleHDA.kext) available in Desktop/audio_ALC892. Uncommented Terminal commands below.
+
+I.	Patch preparation/Backup installed AppleHDA.kext/Fix patch file permissions
+
+cp -R Downloads/audio_ALC892-master Desktop/audio_ALC892
+cp -R /System/Library/Extensions/AppleHDA.kext Desktop/audio_ALC892/AppleHDA-orig.kext
+cd Desktop/audio_ALC892
+unzip 892.zip
+cd 892
+xattr -c Info.plist
+xattr -c layout1.xml.zlib
+xattr -c layout2.xml.zlib
+xattr -c layout3.xml.zlib
+xattr -c Platforms.xml.zlib
+
+
+II.	Install ALC892 layouts, pathmaps and pin configurations, select one layout.xml
+
+sudo cp -R info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+
+sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
+
+sudo cp -R layout1.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+sudo cp -R layout2.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+sudo cp -R layout3.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+
+sudo cp -R Platforms.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resource
+
+III.	Install codec binary patch  
+1. For ML 10.8 - 10.8.4:
+
+sudo perl -pi -e 's|\xff\x87\xec\x1a\x0f\x8f\x53\x01\x00\x00|\x99\x08\xec\x10\x0f\x84\x2a\x01\x00\x00|g' /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA
+
+sudo perl -pi -e 's|\xff\x87\xec\x1a\x0f\x8f\x2f\x01\x00\x00|\x99\x08\xec\x10\x0f\x84\x06\x01\x00\x00|g' /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA
+
+IV.	Fix permissions and backup Patched ALC892 AppleHDA.kext
+
+sudo chown -R root:wheel /System/Library/Extensions/AppleHDA.kext
+sudo touch /System/Library/Extensions
+
+cd ~
+rm -R Desktop/audio_ALC892/892
+cp -R /System/Library/Extensions/AppleHDA.kext Desktop/audio_ALC892/AppleHDA.kext
+
+exit
+
+V. 	Restart
+
+VI.	ALC892 audio verification
+
+1. Open System Preferences/Sound/Output and Select Internal Speakers
+2. Connect speakers or headphones to the Green motherboard audio port
+3. Open iTunes, verify output device is Computer, select a song and Press Play
+
+VII	Troubleshooting
+
+1. Verify S/L/E/AppleHDA.kext installed and version
+2. Verify IOReg/HDEDF/Layout-id is 1, 2 or 3
+3. Verify permissions: run Disk Utility/Select system disk/Repair Permissions and Restart
+
+VIII.	Problem Reporting
+
+1. Motherboard/BIOS version/Graphics/OS X version
+2. Guide used, steps completed, problem description
+2. Copy of IOReg
+
+________________________________________________________________________________________
+Terminal commands (copy and paste, one line at time, enter/return)
+<= ML 10.8.4 
+
+	cp -R Downloads/audio_ALC892-master Desktop/audio_ALC892
+	cp -R /System/Library/Extensions/AppleHDA.kext Desktop/audio_ALC892/AppleHDA-orig.kext
+	cd Desktop/audio_ALC892
+	unzip 892.zip
+	cd 892
+	xattr -c Info.plist
+	xattr -c layout1.xml.zlib
+	xattr -c layout2.xml.zlib
+	xattr -c layout3.xml.zlib
+	xattr -c Platforms.xml.zlib
+	sudo cp -R info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+	sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
+	sudo cp -R layout1.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+	sudo cp -R layout2.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+	sudo cp -R layout3.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+	sudo cp -R Platforms.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+	sudo perl -pi -e 's|\xff\x87\xec\x1a\x0f\x8f\x53\x01\x00\x00|\x99\x08\xec\x10\x0f\x84\x2a\x01\x00\x00|g' /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA
+	sudo perl -pi -e 's|\xff\x87\xec\x1a\x0f\x8f\x2f\x01\x00\x00|\x99\x08\xec\x10\x0f\x84\x06\x01\x00\x00|g' /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA
+	sudo chown -R root:wheel /System/Library/Extensions/AppleHDA.kext
+	sudo touch /System/Library/Extensions
+	cd ~
+	rm -R Desktop/audio_ALC892/892
+	cp -R /System/Library/Extensions/AppleHDA.kext Desktop/audio_ALC892/AppleHDA.kext
+exit
+
