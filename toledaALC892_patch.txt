@@ -54,7 +54,7 @@ xattr -c Platforms.xml.zlib
 
 II.	Install ALC892 layouts, pathmaps and pin configurations, select one layout.xml
 
-sudo cp -R info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+sudo cp -R Info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist
 
 sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
 
@@ -116,7 +116,7 @@ Terminal commands (copy and paste, one line at time, enter/return)
 	xattr -c layout2.xml.zlib
 	xattr -c layout3.xml.zlib
 	xattr -c Platforms.xml.zlib
-	sudo cp -R info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+	sudo cp -R Info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist
 	sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
 	sudo cp -R layout1.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
 	sudo cp -R layout2.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
