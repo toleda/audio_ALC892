@@ -3,6 +3,7 @@ audio_ALC892
 OS X Realtek ALC892 Onboard Audio
 
 This guide enables OS X Realtek ALC892 onboard audio on Intel based motherboards with a bootable clean install of OS X. The Realtek AppleHDA.kext only works with the codec the kext was edited for and replaces the native AppleHDA.kext.
+____________________________________________________________Download ZIP >  >
 
 Requirements
 1. Mountain Lion 10.8 - 10.8.4
@@ -38,7 +39,7 @@ Three techniques enable the Realtek ALC892 AppleHDA.kext, select one
 
 Download
 1. https://github.com/toleda/audio_ALC892
-2. Select: Download ZIP
+2. Select: Download ZIP (above and right)
 
 Preparation/Configuration/Installation
 1. Downloads/audio_ALC892-master/toledaALC892_patch.txt

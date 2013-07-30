@@ -38,31 +38,21 @@ Open Applications/Utilities/Terminal
 One at a time, copy each command below, Paste into the Terminal window and press Enter
 The ALC892 Patch makes a backup of the original AppleHDA.kext (AppleHDA-orig.kext) and a backup of the installed patched ALC892 AppleHDA.kext (AppleHDA.kext) available in Desktop/audio_ALC892. Uncommented Terminal commands below.
 
-I.	Patch preparation/Backup installed AppleHDA.kext/Fix patch file permissions
+I.	Patch preparation/Backup installed AppleHDA.kext/Inflate zip file
 
 cp -R Downloads/audio_ALC892-master Desktop/audio_ALC892
 cp -R /System/Library/Extensions/AppleHDA.kext Desktop/audio_ALC892/AppleHDA-orig.kext
 cd Desktop/audio_ALC892
 unzip 892.zip
 cd 892
-xattr -c Info.plist
-xattr -c layout1.xml.zlib
-xattr -c layout2.xml.zlib
-xattr -c layout3.xml.zlib
-xattr -c Platforms.xml.zlib
 
+II.	Install ALC892 layouts, pathmaps and pin configurations
 
-II.	Install ALC892 layouts, pathmaps and pin configurations, select one layout.xml
-
-sudo cp -R info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+sudo install -m 644 -o root -g wheel info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
 
 sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
 
-sudo cp -R layout1.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
-sudo cp -R layout2.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
-sudo cp -R layout3.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
-
-sudo cp -R Platforms.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resource
+sudo install -m 644 -o root -g wheel Platforms.xml.zlib layout1.xml.zlib layout2.xml.zlib layout3.xml.zlib  /System/Library/Extensions/AppleHDA.kext/Contents/Resources
 
 III.	Install codec binary patch  
 1. For ML 10.8 - 10.8.4:
@@ -111,17 +101,9 @@ Terminal commands (copy and paste, one line at time, enter/return)
 	cd Desktop/audio_ALC892
 	unzip 892.zip
 	cd 892
-	xattr -c Info.plist
-	xattr -c layout1.xml.zlib
-	xattr -c layout2.xml.zlib
-	xattr -c layout3.xml.zlib
-	xattr -c Platforms.xml.zlib
-	sudo cp -R info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+	sudo install -m 644 -o root -g wheel info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
 	sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
-	sudo cp -R layout1.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
-	sudo cp -R layout2.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
-	sudo cp -R layout3.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
-	sudo cp -R Platforms.xml.zlib /System/Library/Extensions/AppleHDA.kext/Contents/Resources
+	sudo install -m 644 -o root -g wheel Platforms.xml.zlib layout1.xml.zlib layout2.xml.zlib layout3.xml.zlib  /System/Library/Extensions/AppleHDA.kext/Contents/Resources
 	sudo perl -pi -e 's|\xff\x87\xec\x1a\x0f\x8f\x53\x01\x00\x00|\x99\x08\xec\x10\x0f\x84\x2a\x01\x00\x00|g' /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA
 	sudo perl -pi -e 's|\xff\x87\xec\x1a\x0f\x8f\x2f\x01\x00\x00|\x99\x08\xec\x10\x0f\x84\x06\x01\x00\x00|g' /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA
 	sudo chown -R root:wheel /System/Library/Extensions/AppleHDA.kext
