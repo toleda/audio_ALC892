@@ -1,6 +1,6 @@
 Maintained by: toleda for: github.com/toleda/audio_ALC892
 File: toledaALC892_patch_v1.0
-Credit: THeKiNG, VCH888, .:ErmaC:., RevoGirl
+Credit: THeKiNG, VCH888, .:ErmaC:., bcc9, RevoGirl
 
 The toledaALC892 patch configures OS X Realtek ALC892 onboard audio on Intel based motherboards with a bootable clean install of OS X.  The patched AppleHDA.kext only works with the codec the kext was edited for and replaces the native AppleHDA.kext.
 
