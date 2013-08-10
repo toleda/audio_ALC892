@@ -48,7 +48,7 @@ cd 892
 
 II.	Install ALC892 layouts, pathmaps and pin configurations
 
-sudo install -m 644 -o root -g wheel info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+sudo install -m 644 -o root -g wheel Info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist
 
 sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
 
@@ -101,7 +101,7 @@ Terminal commands (copy and paste, one line at time, enter/return)
 	cd Desktop/audio_ALC892
 	unzip 892.zip
 	cd 892
-	sudo install -m 644 -o root -g wheel info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/info.plist
+	sudo install -m 644 -o root -g wheel Info.plist /System/Library/Extensions/AppleHDA.kext/Contents/Plugins/AppleHDAHardwareConfigDriver.kext/Contents/Info.plist
 	sudo rm -R /System/Library/Extensions/AppleHDA.kext/Contents/Resources/layout*
 	sudo install -m 644 -o root -g wheel Platforms.xml.zlib layout1.xml.zlib layout2.xml.zlib layout3.xml.zlib  /System/Library/Extensions/AppleHDA.kext/Contents/Resources
 	sudo perl -pi -e 's|\xff\x87\xec\x1a\x0f\x8f\x53\x01\x00\x00|\x99\x08\xec\x10\x0f\x84\x2a\x01\x00\x00|g' /System/Library/Extensions/AppleHDA.kext/Contents/MacOS/AppleHDA
