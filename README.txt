@@ -93,7 +93,7 @@ Details - audio_ALC892-ver_patch script  (see Requirements)
 4. Example: Terminal/audio_alc892-85_patch window
 _____________________________
 
-...$ /Users/dtottle/Downloads/audio_ALC892-master/audio_alc892-85_patch.command ; exit;
+...$ .../Downloads/audio_ALC892-master/audio_alc892-85_patch.command ; exit;
 Prepare Desktop/audio_ALC892 ...
 Archive:  892.zip
    creating: 892/
