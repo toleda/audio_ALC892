@@ -6,11 +6,11 @@ OS X Realtek ALC892 Onboard Audio
 This guide enables OS X Realtek ALC892 onboard audio on Intel based motherboards with a bootable clean install of OS X. The Realtek AppleHDA.kext only works with the codec the kext was edited for and patches the native AppleHDA.kext.
 ____________________________________________________________Download ZIP >  > 
 
-v2: 8/18/13 - 10.8.4 Shell Script Realtek ALC892 AppleHDA.kext Patching
-
 Requirements
-1. Native S/L/E/AppheHDA.kext (restore native AppleHDA.kext with Combo Update)
-2. alc892-84 - Mountain Lion 10.8 - 10.8.4/AppleHDA.kext_v2.3.7
+1. Native S/L/E/AppleHDA.kext (restore native AppleHDA.kext with Combo Update)
+2. Supported OS X versions:
+2a. alc892-84 - Mountain Lion 10.8 - 10.8.4/AppleHDA.kext_v2.3.7
+2b. alc892-85 - Mountain Lion 10.8.5/AppleHDA.kext_v2.4.7
 
 Realtek ALC AppleHDA Guides https://github.com/toleda/audio_ALCInjection
 ML-Realtek ALC AppleHDA Capabilities.pdf
@@ -38,20 +38,23 @@ http://www.insanelymac.com/forum/topic/290796-realtek-alc-applehda-audio-injecti
 3a. Audio_ID = 1/layout-id: 0x01, 0x00, 0x00, 0x00, 0x00
 3b. Audio_ID = 2/layout-id: 0x02, 0x00, 0x00, 0x00, 0x00
 3c. Audio_ID = 3, see ssdt/HD3K/HD4K HDMI audio
-4. Clover/Config.plist/PCI/HDAInjection, see ML-Clover Realtek ALC AppleHDA Injection.pdf
-4a. Audio_ID = 1/HDAInjection=1
-4b. Audio_ID = 2/HDAInjection=2
-4c. Audio_ID = 3/HDAInjection=3 
+4. Clover/Config.plist/Devices, see ML-Clover Realtek ALC AppleHDA Injection.pdf
+4a. Audio_ID = 1/Audio/Inject=1
+4b. Audio_ID = 2/Audio/Inject=2
+4c. Audio_ID = 3/Audio/Inject=3 
 
 Download
 1. https://github.com/toleda/audio_ALC892
 2. Select: Download ZIP (above and right)
 
-Installation/Shell Script
-1. Downloads/audio_ALC892-master/audio_alc892-84_patch.sh
-2. Finder/File/Open With/Terminal
+Installation/Shell Script/.command
+1. Downloads/audio_ALC892-master/
+1a. for 10.8.4 and older/audio_alc892-84_patch.command
+1b. for 10.8.5/audio_alc892-85_patch.command
+2. Launch (double click: audio_alc892-ver_patch.command)
 3. Enter password at prompt
-4. Restart
+4. Save Log: Terminal/Shell/Export Text As../Terminal Saved Output/Desktop/audio_ALC892
+5. Restart
 
 Troubleshooting
 1. ML-Realtek ALC AppleHDA Capabilities.pdf
@@ -67,35 +70,35 @@ RevoGirl
 
 toleda
 https://github.com/toleda/audio_ALC892
-audio_alc892-84_patch.sh
+audio_alc892-84_patch.command
+audio_alc892-85_patch.command
 README.txt
 Files:
 892.zip
 
-Details - audio_ALC892-rv-patch script  (see Reqirements)
+Details - audio_ALC892-ver_patch script  (see Requirements)
 
 1. Verify: 
-1a. native S/L/E/AppleHDA.kext
+1a. native S/L/E/AppleHDA.kext_ver
 1b. Downloads/audio_ALC892-master
 
 2. Rename or Delete (if present)
 2a. Desktop/audio-ALC892 to Desktop/audio-ALC892-archive
 
 3. Run script
-3a. Downloads/audio_ALC892-master/audio_alc892-84_patch
-3b. Finder/Open With/Other/Choose Application/Enable: All Applications
-3c. Applications/Utilities/Terminal
-3d. Enter Password when requested
+3a. Downloads/audio_ALC892-master/audio_alc892-ver_patch.command
+3b. Lunch (double click)
+3c. Enter Password when requested
 
-4. Terminal/audio_alc892-84_patch window
+4. Example: Terminal/audio_alc892-85_patch window
 _____________________________
 
-Last login: Tue Aug 13 19:43:30 on console
-$ . . ./Downloads/audio_ALC892-master/audio_alc892-84_patch.sh ; exit;
+...$ /Users/dtottle/Downloads/audio_ALC892-master/audio_alc892-85_patch.command ; exit;
 Prepare Desktop/audio_ALC892 ...
 Archive:  892.zip
    creating: 892/
   inflating: 892/Info-84.plist       
+  inflating: 892/Info-85.plist     
  extracting: 892/layout1.xml.zlib    
  extracting: 892/layout2.xml.zlib    
  extracting: 892/layout3.xml.zlib    
@@ -111,8 +114,11 @@ logout
 [Process completed]
 ___________________________
 
-5. If output is the same, success.  Restart
+5. If output is the same, success.  
+5a. Terminal/Shell/Export Text As../Terminal Saved Output/Desktop/audio_ALC892
+5b. Restart
 
 6. If errors or a different output;
 6a. Install Desktop/audio_ALC892/AppleHDA-orig.kext to S/L/E/AppleHDA.kext
 6b. Go to Step 1.
+
