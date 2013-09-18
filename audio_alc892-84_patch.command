@@ -41,7 +41,6 @@ echo "Fix permissions ..."
 sudo chown -R root:wheel /System/Library/Extensions/AppleHDA.kext
 
 echo "Kernel cache..."
-sudo rm -fr /System/Library/Caches/*
 sudo touch /System/Library/Extensions
 
 cd ~

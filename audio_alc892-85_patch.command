@@ -15,9 +15,13 @@
 # 1. Finder/File/Open With/Terminal
 # 2. Enter password at prompt
 #
-# Agreement
-# The audio_ALC892_patch is for personal use only.  Do not distribute the patch, any or 
-# all of the enclosed files or the resulting patched AppleHDA.kext for any reason without # permission. The audio_ALC892_patch is provided as is and without any kind of warranty.
+echo " "
+echo "Agreement"
+echo "The audio_ALC1150_patch is for personal use only. Do not distribute the patch," 
+echo "any or all of the enclosed files or the resulting patched AppleHDA.kext for any" 
+echo "reason without permission. The audio_ALC1150_patch is provided as is and without" 
+echo "any kind of warranty."
+echo " "
 #
 echo "Prepare Desktop/audio_ALC892 ..."
 cd ~
@@ -40,7 +44,6 @@ echo "Fix permissions ..."
 sudo chown -R root:wheel /System/Library/Extensions/AppleHDA.kext
 
 echo "Kernel cache..."
-sudo rm -fr /System/Library/Caches/*
 sudo touch /System/Library/Extensions
 
 cd ~

@@ -13,17 +13,17 @@ Requirements
 2b. alc892-85 - Mountain Lion 10.8.5/AppleHDA.kext_v2.4.7
 
 Realtek ALC AppleHDA Guides https://github.com/toleda/audio_ALCInjection
-ML-Realtek ALC AppleHDA Capabilities.pdf
-ML-Realtek ALC AppleHDA Screenshots.pdf
-ML-Customizing the Realtek AppleHDA.pdf
+1. ML-Realtek ALC AppleHDA Capabilities.pdf
+2. ML-Realtek ALC AppleHDA Screenshots.pdf
+3. ML-Customizing the Realtek AppleHDA.pdf
 
 Three Realtek ALC892 AppleHDA.kext Audio_IDs, select one
-Audio_ID: 1 supports 5 and 6 port ALC8xx onboard and/or AMD/Nvidia HDMI audio  
-Audio_ID: 2 supports 3 port ALC8xx onboard and/or AMD/Nvidia HDMI audio
-Audio_ID: 3 supports 3, 5 and 6 port ALC8xx onboard HD4K/HD3K HDMI audio
+1. Audio_ID: 1 supports 5 and 6 port ALC8xx onboard and/or AMD/Nvidia HDMI audio  
+2. Audio_ID: 2 supports 3 port ALC8xx onboard and/or AMD/Nvidia HDMI audio
+3. Audio_ID: 3 supports 3, 5 and 6 port ALC8xx onboard HD4K/HD3K HDMI audio
 	with or without AMD/Nvidia HDMI audio
-Audio_IDs: 1 and 2 support analog 5.1 surround sound, 3 does not
-Audio_IDs: 1, 2 and 3 require HDMI audio dsdt edits for HDMI audio 
+4. Audio_IDs: 1 and 2 support analog 5.1 surround sound, 3 does not
+5. Audio_IDs: 1, 2 and 3 require HDMI audio dsdt edits for HDMI audio
 
 Four techniques enable the Realtek ALC AppleHDA.kext, select one
 http://www.insanelymac.com/forum/topic/290796-realtek-alc-applehda-audio-injection/
@@ -38,7 +38,7 @@ http://www.insanelymac.com/forum/topic/290796-realtek-alc-applehda-audio-injecti
 3a. Audio_ID = 1/layout-id: 0x01, 0x00, 0x00, 0x00, 0x00
 3b. Audio_ID = 2/layout-id: 0x02, 0x00, 0x00, 0x00, 0x00
 3c. Audio_ID = 3, see ssdt/HD3K/HD4K HDMI audio
-4. Clover/Config.plist/Devices, see ML-Clover Realtek ALC AppleHDA Injection.pdf
+4. Clover/Config.plist/PCI/Devices, see ML-Clover Realtek ALC AppleHDA Injection.pdf
 4a. Audio_ID = 1/Audio/Inject=1
 4b. Audio_ID = 2/Audio/Inject=2
 4c. Audio_ID = 3/Audio/Inject=3 
@@ -93,7 +93,7 @@ Details - audio_ALC892-ver_patch script  (see Requirements)
 4. Example: Terminal/audio_alc892-85_patch window
 _____________________________
 
-...$ .../Downloads/audio_ALC892-master/audio_alc892-85_patch.command ; exit;
+...$ /Users/dtottle/Downloads/audio_ALC892-master/audio_alc892-85_patch.command ; exit;
 Prepare Desktop/audio_ALC892 ...
 Archive:  892.zip
    creating: 892/
@@ -122,3 +122,5 @@ ___________________________
 6a. Install Desktop/audio_ALC892/AppleHDA-orig.kext to S/L/E/AppleHDA.kext
 6b. Go to Step 1.
 
+7. If boot problem caused by AppleHDA, Boot/Single User Mode/Terminal
+sudo rm -R /System/Library/Extensions/AppleHDA.kext
