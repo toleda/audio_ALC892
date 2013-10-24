@@ -59,10 +59,18 @@ Installation/Shell Script/.command
 4. Save Log: Terminal/Shell/Export Text As../Terminal Saved Output/Desktop/audio_ALC892
 5. Restart
 
-Troubleshooting
-1. M-Realtek ALC AppleHDA No Audio.pdf
-2. Post to http://www.insanelymac.com/forum/topic/290797-mountain-lion-realtek-alc-applehda-audio/
-3. Post to http://www.tonymacx86.com/audio/76309-mountain-lion-multibeast-no-audio-solutions-problem-reporting.html
+Problem Reporting
+1. Motherboard/BIOS version/processor/graphics/OS and version
+2. Copy of dsdt (if edited)
+3. Copy of IORegistryExplorer
+
+Troubleshooting/Post w/attachments 2 and 3, above
+1. Mavericks/10.9
+1a. http://www.tonymacx86.com/hdmi-audio/112469-m-hdmi-audio.html
+1b. http://www.insanelymac.com/forum/topic/292999-mavericks-applehda-hdmi-audio/
+2. Mountain Lion/10.8
+2a.http://www.tonymacx86.com/hdmi-audio/70762-mountain-lion-hdmi-audio-ami-dsdt.html
+2b. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
 
 Credit
 THe KiNG 
