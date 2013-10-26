@@ -66,11 +66,11 @@ Problem Reporting
 
 Troubleshooting/Post w/attachments 2 and 3, above
 1. Mavericks/10.9
-1a. http://www.tonymacx86.com/hdmi-audio/112469-m-hdmi-audio.html
+1a. http://www.tonymacx86.com/audio/112461-mavericks-no-audio-realtek-alc-applehda.html
 1b. http://www.insanelymac.com/forum/topic/292999-mavericks-applehda-hdmi-audio/
 2. Mountain Lion/10.8
-2a.http://www.tonymacx86.com/hdmi-audio/70762-mountain-lion-hdmi-audio-ami-dsdt.html
-2b. http://www.insanelymac.com/forum/topic/291103-mountain-lion-hdmi-audio/
+2a.http://www.tonymacx86.com/audio/76309-mountain-lion-multibeast-no-audio-solutions-problem-reporting.html
+2b. http://www.insanelymac.com/forum/topic/290797-mountain-lion-realtek-alc-applehda-audio/
 
 Credit
 THe KiNG 
