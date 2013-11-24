@@ -47,7 +47,7 @@ https://github.com/toleda/audio_ssdt_enabler
 https://github.com/toleda/audio_ALCInjection
 4a. Audio_ID = 1/Audio/Inject=1
 4b. Audio_ID = 2/Audio/Inject=2
-4c. Audio_ID = 3/NA
+4c. Audio_ID = 3/Audio/Inject=3
 
 Download
 1. https://github.com/toleda/audio_ALC892
