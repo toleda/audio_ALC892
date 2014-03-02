@@ -6,6 +6,8 @@ OS X Realtek ALC892 Onboard Audio
 This guide enables OS X Realtek ALC892 onboard audio on Intel based motherboards with a bootable clean install of OS X. The Realtek AppleHDA.kext only works with the codec the kext was edited for and patches the native AppleHDA.kext.
 ____________________________________________________________Download ZIP >  > 
 
+Note: cloverALC, see https://github.com/toleda/audio_cloverALC
+
 Requirements
 1. Native S/L/E/AppleHDA.kext (restore native AppleHDA.kext with Combo Update)
 2. Supported OS X versions:
@@ -29,7 +31,7 @@ Three Realtek ALC892 AppleHDA.kext Audio_IDs, select one
 4. Audio_IDs: 1 and 2 support analog 5.1 surround sound, 3 does not
 5. Audio_IDs: 1, 2 and 3 require HDMI audio dsdt edits for HDMI audio
 
-Four techniques enable the Realtek ALC AppleHDA.kext, select one
+Techniques to enable the Realtek ALC AppleHDA.kext, select one
 1. HDEF/kext/No dsdt/audio enabler = Audio_ID, see [Guide] Add HDEF-kext.pdf
 https://github.com/toleda/audio_kext_enabler
 1a. Audio_ID = 1/HDAEnabler1.kext.zip 
@@ -50,19 +52,21 @@ https://github.com/toleda/audio_ALCInjection
 4a. Audio_ID = 1/Audio/Inject=1
 4b. Audio_ID = 2/Audio/Inject=2
 4c. Audio_ID = 3/Audio/Inject=3
+5. Chameleon/Chameleon Installer/Customize/Settings
+5a. Audio_ID = 1/HDEF Layout=1
+5b. Audio_ID = 2/HDEF Layout=2
 
 Download
 1. https://github.com/toleda/audio_ALC892
 2. Select: Download ZIP (above and right)
 
-Installation/Shell Script/.command
+Installation/Shell Script/.command (Do not move folder or files)
 1. Downloads/audio_ALC892-master/
 1a. for 10.9.2/audio_alc892-92_patch.command
 1b. for 10.9.1/audio_alc892-91_patch.command
 1c. for 10.9/audio_alc892-90_patch.command
 1d. for 10.8.5/audio_alc892-85_patch.command
 1e. for 10.8.4 and older/audio_alc892-84_patch.command
-
 2. Launch (double click: audio_alc892-ver_patch.command)
 3. Enter password at prompt
 4. Save Log: Terminal/Shell/Export Text As../Terminal Saved Output/Desktop/audio_ALC892
@@ -118,15 +122,6 @@ _____________________________
 
 ...$ /Users/dtottle/Downloads/audio_ALC892-master/audio_alc892-85_patch.command ; exit;
 Prepare Desktop/audio_ALC892 ...
-Archive:  892.zip
-   creating: 892/
-  inflating: 892/Info-84.plist       
-  inflating: 892/Info-85.plist
-  inflating: 892/Info-90.plist     
- extracting: 892/layout1.xml.zlib    
- extracting: 892/layout2.xml.zlib    
- extracting: 892/layout3.xml.zlib    
-  inflating: 892/Platforms.xml.zlib  
 Install files ...
 Password:
 Patch binary ...
