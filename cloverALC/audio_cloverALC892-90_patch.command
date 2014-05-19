@@ -1,7 +1,7 @@
 #!/bin/sh
 # Maintained by: toleda for: github.com/toleda/audio_cloverALC
 # File: audio_cloverALC892-90_patch.sh_v1.0
-# Credit: THeKiNG, VCH888, .:ErmaC:., bcc9, RevoGirl, Alex Auditore
+# Credit: abxite
 #
 # OS X Clover Realtek ALC Onboard Audio
 # Clover Patched AppleHDA Method
